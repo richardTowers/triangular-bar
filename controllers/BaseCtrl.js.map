@@ -1,0 +1,1 @@
+{"version":3,"file":"BaseCtrl.js","sourceRoot":"","sources":["BaseCtrl.ts"],"names":["triangularBar","triangularBar.BaseCtrl","triangularBar.BaseCtrl.constructor"],"mappings":"AAAA,mFAAmF;AAEnF,IAAO,aAAa;AAYnB,CAZD,UAAO,aAAa;IAMhBA;QACIC,kBAAYA,MAAMA;YACdC,MAAMA,CAACA,EAAEA,GAAGA,IAAIA,CAACA;QANjBA,CAACA;QAIOD;AAACA,IAADA,CAACA,IAIhBD;IAJDA,kCAICA;AAELA,CAACA,yCAAA"}

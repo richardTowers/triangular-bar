@@ -12,23 +12,37 @@ module triangularBar {
         height: number;
     }
 
-    export interface IBarScope extends ng.IScope {
+    export interface IBarScope extends IScope {
         graph: IGraph;
         bars: IRect[];
     }
 
-    export class BarCtrl {
+    export class BarCtrl extends BaseCtrl {
         constructor(
-            private $scope: IBarScope
-        ) {
-            $scope.graph = { width: 100, height: 100 };
-            $scope.bars = [
-                { height: 100 },
-                { height: 10 },
-                { height: 87 },
-                { height: 42 },
-                { height: 91 }
-            ];
+            private $scope: IBarScope) {
+
+                super($scope);
+
+                $scope.graph = { width: 1000, height: 500 };
+                $scope.bars = [
+                    { height: 400 },
+                    { height: 40 },
+                    { height: 357 },
+                    { height: 420 },
+                    { height: 400 },
+                    { height: 40 },
+                    { height: 357 },
+                    { height: 420 },
+                    { height: 400 },
+                    { height: 40 },
+                    { height: 357 },
+                    { height: 420 },
+                    { height: 200 }
+                ];
+        }
+
+        randomise() {
+            this.$scope.bars.forEach((bar) => bar.height = Math.floor(500 * Math.random()));
         }
     }
 }

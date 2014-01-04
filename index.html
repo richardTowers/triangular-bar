@@ -5,24 +5,30 @@
     <meta charset="utf-8" />
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/d3/d3.js"></script>
+    <script src="controllers/BaseCtrl.js"></script>
     <script src="controllers/BarCtrl.js"></script>
     <script src="app.js"></script>
+    <style>
+        body {
+            background-color: #121212;
+            fill: #7441c7;
+        }
+    </style>
 </head>
 <body ng-controller="BarCtrl">
 
-    <ul>
-        <li ng-repeat="bar in bars">
-            <label>Height: <input type="number" ng-model="bar.height" /></label>
-        </li>
-    </ul>
+    <div>
+        <button ng-click="vm.randomise()">Randomise</button>
+    </div>
 
     <svg ng-attr-height="{{graph.height}}" ng-attr-width="{{graph.width}}">
         <rect
               ng-repeat="bar in bars"
-              width="10"
+              width="50"
               ng-attr-height="{{bar.height}}"
               ng-attr-y="{{graph.height - bar.height}}"
-              ng-attr-x="{{$index * 15}}"></rect>
+              ng-attr-x="{{$index * 55}}"></rect>
     </svg>
+
 </body>
 </html>
