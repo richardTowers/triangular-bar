@@ -11,21 +11,18 @@
 <body ng-controller="BarCtrl">
 
     <ul>
-        <li ng-repeat="circle in circles">
-            <label>Radius: <input type="number" ng-model="circle.r" /></label>
-            <label>X: <input type="number" ng-model="circle.x" /></label>
-            <label>Y: <input type="number" ng-model="circle.y" /></label>
-            <label>Color: <input type="color" ng-model="circle.fill" /></label>
+        <li ng-repeat="bar in bars">
+            <label>Height: <input type="number" ng-model="bar.height" /></label>
         </li>
     </ul>
 
     <svg ng-attr-height="{{graph.height}}" ng-attr-width="{{graph.width}}">
-        <circle ng-repeat="circle in circles"
-                ng-attr-cx="{{circle.x}}"
-                ng-attr-cy="{{circle.y}}"
-                ng-attr-r="{{circle.r}}"
-                ng-attr-fill="{{circle.fill}}">
-        </circle>
+        <rect
+              ng-repeat="bar in bars"
+              width="10"
+              ng-attr-height="{{bar.height}}"
+              ng-attr-y="{{graph.height - bar.height}}"
+              ng-attr-x="{{$index * 15}}"></rect>
     </svg>
 </body>
 </html>
