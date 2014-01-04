@@ -149,3 +149,11 @@ $RECYCLE.BIN/
 
 # Mac crap
 .DS_Store
+
+
+# ========================
+# Other package managers
+# ========================
+
+node_modules
+bower_components
