@@ -1,13 +1,9 @@
 /// <reference path="bower_components/DefinitelyTyped/angularjs/angular.d.ts" />
-/// <reference path="bower_components/DefinitelyTyped/d3/d3.d.ts" />
-var app = angular.module('triangular', []);
+/// <reference path="controllers/BarCtrl.ts" />
+var triangularBar;
+(function (triangularBar) {
+    'use strict';
 
-app.controller('BarCtrl', function ($scope) {
-    $scope.graph = { 'width': 1000, 'height': 1000 };
-    $scope.circles = [
-        { 'x': 150, 'y': 200, 'r': 150, 'fill': '#ff0000' },
-        { 'x': 500, 'y': 700, 'r': 200, 'fill': '#00ff00' },
-        { 'x': 800, 'y': 100, 'r': 100, 'fill': '#0000ff' }
-    ];
-});
+    var app = angular.module('triangular', []).controller('BarCtrl', triangularBar.BarCtrl);
+})(triangularBar || (triangularBar = {}));
 //# sourceMappingURL=app.js.map

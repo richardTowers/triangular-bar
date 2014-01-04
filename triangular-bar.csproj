@@ -19,6 +19,7 @@
     <TypeScriptCompile Include="app.ts" />
     <TypeScriptCompile Include="bower_components\DefinitelyTyped\angularjs\angular.d.ts" />
     <TypeScriptCompile Include="bower_components\DefinitelyTyped\d3\d3.d.ts" />
+    <TypeScriptCompile Include="controllers\BarCtrl.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="bower_components\angular\.bower.json" />
