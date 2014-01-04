@@ -19,5 +19,8 @@
   "dependencies": {
     "angular": "~1.2.7",
     "d3": "~3.3.13"
+  },
+  "devDependencies": {
+    "DefinitelyTyped": "*"
   }
 }
