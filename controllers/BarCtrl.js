@@ -17,21 +17,7 @@ var triangularBar;
             this.width = 1000;
             this.height = 500;
 
-            $scope.tests = [
-                { passes: 10, failures: 5 },
-                { passes: 10, failures: 5, passIncrease: 2 },
-                { passes: 10, failures: 5, passIncrease: 3 },
-                { passes: 10, failures: 5 },
-                { passes: 10, failures: 5 },
-                { passes: 10, failures: 5, passIncrease: 2 },
-                { passes: 10, failures: 5 },
-                { passes: 10, failures: 5 },
-                { passes: 10, failures: 5, passIncrease: 2 },
-                { passes: 10, failures: 5, passIncrease: 2 },
-                { passes: 10, failures: 10, passIncrease: 2 },
-                { passes: 10, failures: 5 },
-                { passes: 10, failures: 5 }
-            ];
+            $scope.tests = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1].map(this.getRandomTest);
 
             // We'll also need the max failures and the max passes:
             $scope.maxPasses = Math.max.apply([], $scope.tests.map(function (test) {
@@ -45,13 +31,16 @@ var triangularBar;
             this.scale = this.height / range;
         }
         BarCtrl.prototype.randomise = function () {
-            var _this = this;
-            this.$scope.tests.forEach(function (test) {
-                test.passes = Math.floor(_this.$scope.maxPasses * Math.random());
-                test.failures = Math.floor(_this.$scope.maxFailures * Math.random());
-                test.passIncrease = Math.floor(5 * Math.random());
-                test.failureIncrease = Math.floor(5 * Math.random());
-            });
+            this.$scope.tests = this.$scope.tests.map(this.getRandomTest);
+        };
+
+        BarCtrl.prototype.getRandomTest = function (_) {
+            return {
+                passes: Math.floor(100 * Math.random()),
+                failures: Math.floor(100 * Math.random()),
+                passIncrease: Math.floor(20 * Math.random()),
+                failureIncrease: Math.floor(20 * Math.random())
+            };
         };
         return BarCtrl;
     })(triangularBar.BaseCtrl);

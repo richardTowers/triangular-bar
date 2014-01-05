@@ -38,22 +38,22 @@
             <rect width="50"
                   ng-attr-height="{{test.passes * vm.scale}}"
                   ng-attr-y="{{vm.height - (test.passes + maxFailures) * vm.scale}}"
-                  ng-attr-x="{{$index * 70 + 10}}"
+                  ng-attr-x="{{$index * 80 + 20}}"
                   class="passes"></rect>
             <rect width="50"
                   ng-attr-height="{{test.failures * vm.scale}}"
                   ng-attr-y="{{maxPasses * vm.scale}}" 
-                  ng-attr-x="{{$index * 70 + 10}}"
+                  ng-attr-x="{{$index * 80 + 20}}"
                   class="failures"></rect>
             <rect width="10"
                   ng-attr-height="{{test.passIncrease * vm.scale}}"
                   ng-attr-y="{{vm.height - (test.passIncrease + maxFailures) * vm.scale}}"
-                  ng-attr-x="{{$index * 70}}"
+                  ng-attr-x="{{$index * 80}}"
                   class="passIncrease"></rect>
             <rect width="10"
                   ng-attr-height="{{test.failureIncrease * vm.scale}}"
                   ng-attr-y="{{maxPasses * vm.scale}}"
-                  ng-attr-x="{{$index * 70}}"
+                  ng-attr-x="{{$index * 80 + 10}}"
                   class="failureIncrease"></rect>
         </g>
     </svg>
