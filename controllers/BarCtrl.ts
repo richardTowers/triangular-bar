@@ -26,21 +26,7 @@ module triangularBar {
 
             super($scope);
 
-            $scope.tests = [
-                { passes: 10, failures: 5 },
-                { passes: 10, failures: 5, passIncrease: 2 },
-                { passes: 10, failures: 5, passIncrease: 3 },
-                { passes: 10, failures: 5 },
-                { passes: 10, failures: 5 },
-                { passes: 10, failures: 5, passIncrease: 2 },
-                { passes: 10, failures: 5 },
-                { passes: 10, failures: 5 },
-                { passes: 10, failures: 5, passIncrease: 2 },
-                { passes: 10, failures: 5, passIncrease: 2 },
-                { passes: 10, failures: 10, passIncrease: 2 },
-                { passes: 10, failures: 5 },
-                { passes: 10, failures: 5 }
-            ];
+            $scope.tests = [1,1,1,1,1,1,1,1,1,1].map(this.getRandomTest);
 
             // We'll also need the max failures and the max passes:
             $scope.maxPasses = Math.max.apply([], $scope.tests.map((test) => test.passes));
@@ -51,12 +37,16 @@ module triangularBar {
         }
 
         randomise() {
-            this.$scope.tests.forEach((test) => {
-                test.passes = Math.floor(this.$scope.maxPasses * Math.random());
-                test.failures = Math.floor(this.$scope.maxFailures * Math.random());
-                test.passIncrease = Math.floor(5 * Math.random());
-                test.failureIncrease = Math.floor(5 * Math.random());
-            });
+            this.$scope.tests = this.$scope.tests.map(this.getRandomTest);
+        }
+
+        private getRandomTest(_: any): ITest {
+           return {
+                passes: Math.floor(100 * Math.random()),
+                failures: Math.floor(100 * Math.random()),
+                passIncrease: Math.floor(20 * Math.random()),
+                failureIncrease: Math.floor(20 * Math.random())
+            };
         }
     }
 }
