@@ -13,8 +13,17 @@
             background-color: #121212;
             fill: #4cff00;
         }
-        .pinko {
-            fill: #ff006e;
+        .passes {
+            fill: #4800ff;
+        }
+        .failures {
+            fill: #8f009a;
+        }
+        .passIncrease {
+            fill: #0094ff;
+        }
+        .failureIncrease {
+            fill: #ff1ad0;
         }
     </style>
 </head>
@@ -24,17 +33,28 @@
         <button ng-click="vm.randomise()">Randomise</button>
     </div>
 
-    <svg ng-attr-height="{{graph.height}}" ng-attr-width="{{graph.width}}">
-        <g ng-repeat="bar in bars">
-            <rect width="10"
-                  ng-attr-height="{{bar.diffUp}}"
-                  ng-attr-y="{{graph.height - bar.diffUp}}"
-                  ng-attr-x="{{$index * 70}}"
-                  class="pinko"></rect>
+    <svg ng-attr-height="{{vm.height}}" ng-attr-width="{{vm.width}}">
+        <g ng-repeat="test in tests">
             <rect width="50"
-                  ng-attr-height="{{bar.height}}"
-                  ng-attr-y="{{graph.height - bar.height}}"
-                  ng-attr-x="{{$index * 70 + 10}}"></rect>
+                  ng-attr-height="{{test.passes * vm.scale}}"
+                  ng-attr-y="{{vm.height - (test.passes + maxFailures) * vm.scale}}"
+                  ng-attr-x="{{$index * 70 + 10}}"
+                  class="passes"></rect>
+            <rect width="50"
+                  ng-attr-height="{{test.failures * vm.scale}}"
+                  ng-attr-y="{{maxPasses * vm.scale}}" 
+                  ng-attr-x="{{$index * 70 + 10}}"
+                  class="failures"></rect>
+            <rect width="10"
+                  ng-attr-height="{{test.passIncrease * vm.scale}}"
+                  ng-attr-y="{{vm.height - (test.passIncrease + maxFailures) * vm.scale}}"
+                  ng-attr-x="{{$index * 70}}"
+                  class="passIncrease"></rect>
+            <rect width="10"
+                  ng-attr-height="{{test.failureIncrease * vm.scale}}"
+                  ng-attr-y="{{maxPasses * vm.scale}}"
+                  ng-attr-x="{{$index * 70}}"
+                  class="failureIncrease"></rect>
         </g>
     </svg>
 
