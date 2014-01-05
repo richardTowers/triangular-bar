@@ -13,6 +13,9 @@
             background-color: #121212;
             fill: #4cff00;
         }
+        .pinko {
+            fill: #ff006e;
+        }
     </style>
 </head>
 <body ng-controller="BarCtrl">
@@ -22,12 +25,17 @@
     </div>
 
     <svg ng-attr-height="{{graph.height}}" ng-attr-width="{{graph.width}}">
-        <rect
-              ng-repeat="bar in bars"
-              width="50"
-              ng-attr-height="{{bar.height}}"
-              ng-attr-y="{{graph.height - bar.height}}"
-              ng-attr-x="{{$index * 60}}"></rect>
+        <g ng-repeat="bar in bars">
+            <rect width="10"
+                  ng-attr-height="{{bar.diffUp}}"
+                  ng-attr-y="{{graph.height - bar.diffUp}}"
+                  ng-attr-x="{{$index * 70}}"
+                  class="pinko"></rect>
+            <rect width="50"
+                  ng-attr-height="{{bar.height}}"
+                  ng-attr-y="{{graph.height - bar.height}}"
+                  ng-attr-x="{{$index * 70 + 10}}"></rect>
+        </g>
     </svg>
 
 </body>
